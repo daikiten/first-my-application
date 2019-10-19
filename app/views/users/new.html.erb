@@ -1,0 +1,50 @@
+<h1>アカウント作成ページ</h1>
+
+  <%= form_with(model: @user, local:true) do |f| %>
+
+
+  <div>
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <%= f.label :gender, '性別' %>
+    <%= f.text_field :geder %>
+  </div>
+  
+  <div>
+    <%= f.label :birthdate, '誕生日' %>
+    <%= f.datetime_field :birthdate %>
+  </div>
+  
+  <div>
+    <%= f.label :phone_number, '電話番号' %>
+    <%= f.phone_field :phone_number %>
+  </div>
+  
+  <div>
+    <%= f.label :password_digest, 'Password' %>
+    <%= f.password_field :password_digest %>
+  </div>
+  
+  <div>
+    <%= f.label :password_confirmation, 'Confirmation' %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  
+  <div>
+    <%= f.label :email, 'Email' %>
+    <%= f.email_field :email %>
+  </div>
+  
+  <div>
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+  
+  <%= f.submit 'sign up' %>
+  
+  <% end %>
+  
+  

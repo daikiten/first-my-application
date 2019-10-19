@@ -1,0 +1,53 @@
+
+
+<h1>イベント作成ページです。</h1>
+
+  <%= form_with(model: @events, local:true) do |f| %>
+
+
+  <div>
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name, placeholder: '自分の名前を入力してください。'  %>
+  </div>
+  
+  <div>
+    <%= f.label :place, '場所' %>
+    <%= f.text_field :place, placeholder: '開催場所' %>
+  </div>
+  
+  <div>
+    <%= f.label :date, '日付' %>
+    <%= f.datetime_field :date %>
+  </div>
+  
+  <div>
+    <%= f.label :hour, '時間' %>
+    <%= f.time_field :hour %>
+  </div>
+  
+  <div>
+    <%= f.label :minimum_people, '最小実行人数' %>
+    <%= f.number_field :minimu_people, placeholder: '人数を入力してください' %>
+  </div>
+  
+  <div>
+    <%= f.label :material, '必要道具一覧' %>
+    <%= f.text_area :material, placeholder: '必要な持ち物を入力してください' %>
+  </div>
+  
+  
+  <div>
+    <%= f.label :commnet, 'コメントを入力する' %>
+    <%= f.text_area :comment, placeholder: '何かあればコメントしてくださう' %>
+  </div>
+  
+  <div>
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+  
+  <%= f.submit '作成する' %>
+  
+  <% end %>
+  
+  

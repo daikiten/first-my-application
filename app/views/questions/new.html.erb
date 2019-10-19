@@ -1,0 +1,21 @@
+<h1>お問い合わせページ</h1>
+
+<%= form_with(model: @questions, local:true) do |f| %>
+
+<div>
+  <%= f.label :content, 'お問い合わせ内容' %>
+  <%= f.text_area :content, placeholder: 'お問い合わせの内容を入力してください' %>
+</div>
+
+
+<div>
+  <%= f.label :email, 'メールアドレス' %>
+  <%= f.email_field :email %>
+</div>
+
+<%= f.submit '送信する' %>
+
+<% end %>
+
+
+
