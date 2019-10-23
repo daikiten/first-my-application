@@ -1,4 +1,25 @@
-これは、イベント一覧ページです。
-あとで、API機能を使って実装します。
+  <div>
+        <% if log_in? %>
+        <div class="text-center">
+          <p><%= link_to 'Create Your Events', new_event_path %></p>
+        </div>
+        <% else %>
+        <div class="text-center">
+         <p><%= link_to 'Create Account!!', signup_path %></p>
+        </div>
+ 
 
-ここはトップページなります
+         <% end %>
+    </div>
+
+
+
+<% @events.each do |event| %>
+<div>
+<%= event.name %>
+<%= event.photo %>
+</div>
+
+<% end %>
+
+

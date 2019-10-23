@@ -11,11 +11,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_check)
     
+    @user = User.new(user_check)
     if @user.save
       flash[:success] = 'ユーザーの登録に成功しました。'
-      redirect_to @user
+      redirect_to events_path
     else
       flash.now[:danger] = 'ユーザーの登録に失敗しました。'
       render :new
@@ -29,6 +29,6 @@ class UsersController < ApplicationController
   private 
   
   def user_check
-   params.require(:user).permit(:name, :gender, :birthdate, :phone_number, :password_digest, :password_confirmation, :email)
+   params.require(:user).permit(:name, :gender, :birthdate, :phone_number, :password, :password_confirmation, :email, :photo)
   end
 end

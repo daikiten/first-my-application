@@ -1,2 +1,11 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1>イベント詳細ページです。</h1>
+
+
+<table>
+    <tr><td>イベント名</td><td><%= @event.name %></td></tr>
+    <tr><td>場所</td><td><%= @event.place %></td></tr>
+    <tr><td>日付</td><td><%= @event.date %></td></tr>
+    <tr><td>時間</td><td><%= @event.hour %></td></tr>
+    <tr><td>最小実行人数</td><td><%= @event.minimum_people %></td></tr>
+    <tr><td>必要道具</td><td><%= @event.material %></td></tr>
+</table>

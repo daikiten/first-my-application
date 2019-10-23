@@ -8,16 +8,16 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(id: [:params])
+   @event = Event.find(params[:id])
   end
 
   def new
-    @events = Event.new
+    @event = Event.new
   end
 
   def create
-    @events = current_user.events.build(event_secure)
-    if @events.save
+    @event = current_user.events.build(event_secure)
+    if @event.save
       flash[:success] = 'イベントを登録しました。'
       redirect_to root_url
     else
