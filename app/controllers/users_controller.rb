@@ -23,6 +23,19 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    
+    if @user.update(user_check)
+      flash[:success] = '登録情報を変更しました。'
+      redirect_to root_path
+    else
+      flash.now[:danger] = '更新に失敗しました'
+      render :edit
+    end
   end
   
   

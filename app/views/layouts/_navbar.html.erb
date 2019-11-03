@@ -3,9 +3,10 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if log_in? %>
-        <li class="nav-item"><%= link_to 'LOGOUT', logout_path, method: :delete, class: 'nav-link' %></li>
+        <li>ログインユーザー名:<%= now_user.name %></li>
+        <li class="nav-item"><%= link_to 'LOGOUT', logout_path, method: :delete %></li>
         <% else %>
-        <li class='nav-item'><%= link_to 'LOGIN??' ,login_path, class: 'nav-link' %></li>
+        <li class='nav-item'><%= link_to 'LOGIN??' ,login_path %></li>
         <% end %>
       </ul>
     </div>

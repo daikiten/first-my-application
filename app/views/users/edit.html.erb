@@ -1,5 +1,9 @@
 <h1>アカウント修正ページ</h1>
 
+  <% @user.errors.full_messages.each do |message| %>
+   <%= message %>
+   <% end %>
+
   <%= form_with(model: @user, local:true) do |f| %>
 
 
@@ -8,10 +12,13 @@
     <%= f.text_field :name %>
   </div>
   
-  <div>
-    <%= f.label :gender, '性別' %>
-    <%= f.text_field :geder %>
-  </div>
+ 
+   <div>
+     <p>性別を選択してください</p>
+    <label><%= f.radio_button :gender, '男' %>男</label>
+    <label><%= f.radio_button :gender, '女'%>女</label>
+ 　</div>
+ 
   
   <div>
     <%= f.label :birthdate, '誕生日' %>
@@ -24,8 +31,8 @@
   </div>
   
   <div>
-    <%= f.label :password_digest, 'Password' %>
-    <%= f.password_field :password_digest %>
+    <%= f.label :password, 'Password' %>
+    <%= f.password_field :password %>
   </div>
   
   <div>

@@ -1,13 +1,17 @@
-
-
+<div class='text-center'><%= link_to 'アカウント情報の修正', edit_user_path(now_user) %></div>
+<div class="text-center"><%= link_to 'Create Your Events', new_event_path %></div>
 <h1>イベント詳細編集ページです。</h1>
 
-  <%= form_with(model: @events, local:true) do |f| %>
+<% @event.errors.full_messages.each do |message| %>
+<%= message %>
+<% end%>
+
+  <%= form_with(model: @event, local:true) do |f| %>
 
 
   <div>
     <%= f.label :name, 'Name' %>
-    <%= f.text_field :name, placeholder: '自分の名前を入力してください。'  %>
+    <%= f.text_field :name, placeholder: 'イベントの名前を入力してください。'  %>
   </div>
   
   <div>
@@ -39,6 +43,11 @@
   <div>
     <%= f.label :commnet, 'コメントを入力する' %>
     <%= f.text_area :comment, placeholder: '何かあればコメントしてくださう' %>
+  </div>
+  
+  <div>
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
   </div>
   
   

@@ -8,4 +8,13 @@
     <tr><td>時間</td><td><%= @event.hour %></td></tr>
     <tr><td>最小実行人数</td><td><%= @event.minimum_people %></td></tr>
     <tr><td>必要道具</td><td><%= @event.material %></td></tr>
+    <tr><td>コメント</td><td><%= @event.comment %></td><tr>
+    <tr><td>写真</td><td><%= image_tag @event.photo.to_s,  width: "300px" %></td></tr>
+    <tr><td>参加者一覧</td><td><%= @event.event_owner.name %></td></tr>
 </table>
+
+
+<% if log_in? %>
+<%= link_to 'イベントを修正しますか??', edit_event_path(@event) %>
+<%= render 'relationships/join_button', event: @event %>
+<% end %>

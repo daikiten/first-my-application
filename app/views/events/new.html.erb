@@ -1,18 +1,18 @@
-
+<div class='text-center'><%= link_to 'アカウント情報の修正', edit_user_path(now_user) %></div>
 
 <h1>イベント作成ページです。</h1>
 
 
-  <%= @event.errors.full_messages.each do |message| %>
+  <% @event.errors.full_messages.each do |message| %>
    <%= message %>
    <% end %>
 
-  <%= form_with(model: @events, local:true) do |f| %>
+  <%= form_with(model: @event, local:true) do |f| %>
 
 
   <div>
     <%= f.label :name, 'Name' %>
-    <%= f.text_field :name, placeholder: '自分の名前を入力してください。'  %>
+    <%= f.text_field :name, placeholder: 'event名を入力してください'  %>
   </div>
   
   <div>
@@ -32,7 +32,7 @@
   
   <div>
     <%= f.label :minimum_people, '最小実行人数' %>
-    <%= f.number_field :minimu_people, placeholder: '人数を入力してください' %>
+    <%= f.number_field :minimum_people, placeholder: '人数を入力してください' %>
   </div>
   
   <div>

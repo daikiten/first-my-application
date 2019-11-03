@@ -1,1 +1,26 @@
-ここは、イベント検索ページです
+<h1>Eventを検索しよう</h1>
+ <%= form_with(url: search_events_path, method: :get, local:true) do |f| %>
+   <%= f.text_field :place %>
+   <%= f.submit :search %>
+ <% end %>
+ 
+ <table>
+   <thead>
+     <tr>イベント名</tr>
+   </thead>
+   <tbody>
+     <% @events.each do |event| %>
+     <tr>
+      
+       <td>イベント名：<%= event.name %></td>
+       <td>場所：<%= event.place %></td>
+       <td>日付：<%= event.date %></td>
+       <td>時間：<%= event.hour %></td>
+       <td>最小実行人数：<%= event.minimum_people %></td>
+       <td>必要道具一覧：<%= event.material %></td>
+       <td>コメント：<%= event.comment %></td>
+       <td>イメージ：<%= image_tag event.photo.to_s,  width: "300px" %></td>
+     </tr>
+     <% end %>
+   </tbody>
+ </table>

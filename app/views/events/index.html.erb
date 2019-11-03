@@ -2,24 +2,24 @@
         <% if log_in? %>
         <div class="text-center">
           <p><%= link_to 'Create Your Events', new_event_path %></p>
+          <p><%= link_to 'アカウント情報の修正', edit_user_path(now_user) %></p>
+       　<p><%= link_to 'イベントを検索する', search_events_path %></p>
         </div>
         <% else %>
         <div class="text-center">
          <p><%= link_to 'Create Account!!', signup_path %></p>
         </div>
- 
-
          <% end %>
     </div>
 
+　
 
 
 <% @events.each do |event| %>
 <div>
-<%= event.name %>
-<%= event.photo %>
+<%= link_to event.id, event_path(event) %> : <%= event.name %>
 </div>
-
 <% end %>
 
+events/index.html.erbページです
 
