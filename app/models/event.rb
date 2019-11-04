@@ -3,8 +3,7 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :relationships
   has_many :event_owner, through: :relationships, source: :user 
-  
-  
+
 
   
   validates :name, presence: true, length: { maximum: 20 }

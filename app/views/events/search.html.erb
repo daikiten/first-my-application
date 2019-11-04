@@ -11,7 +11,7 @@
    <tbody>
      <% @events.each do |event| %>
      <tr>
-      
+       <td><%= link_to event.id, event_path(event) %> </td>
        <td>イベント名：<%= event.name %></td>
        <td>場所：<%= event.place %></td>
        <td>日付：<%= event.date %></td>
@@ -20,6 +20,7 @@
        <td>必要道具一覧：<%= event.material %></td>
        <td>コメント：<%= event.comment %></td>
        <td>イメージ：<%= image_tag event.photo.to_s,  width: "300px" %></td>
+        <tr><td>参加者一覧</td><td><% event.event_owner.each do |owner| %><%= owner.name %><% end %></td></tr>
      </tr>
      <% end %>
    </tbody>
