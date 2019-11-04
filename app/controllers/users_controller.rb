@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  
+  before_action :require_user_logged_in, only: [:edit]    
+  before_action :log_in?, only: [:edit]
+  before_action :now_user, only:[:edit]
+  before_action :correct_user, only:[:edit]
+  
   def index
     @user = User.all
   end
@@ -44,4 +50,17 @@ class UsersController < ApplicationController
   def user_check
    params.require(:user).permit(:name, :gender, :birthdate, :phone_number, :password, :password_confirmation, :email, :photo)
   end
-end
+  
+  def require_user_logged_in
+   unless log_in?
+   redirect_to root_path
+   end
+  end
+  
+  def correct_user
+    @now_user = User.find_by(id: params[:id])
+    unless @user
+    redirect_to root_path
+    end
+  end
+end 

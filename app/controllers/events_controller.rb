@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  
+  before_action :correct_user, only: [:edit]
   def index
     @events = Event.all
   end
@@ -54,5 +56,12 @@ class EventsController < ApplicationController
   
   def event_check
    params.require(:event).permit(:name, :place, :date, :hour, :minimum_people, :material, :comment, :photo)
+  end
+  
+  def correct_user
+    @event = now_user.events.find_by(id: params[:id])
+    unless @event
+    redirect_to root_path
+    end
   end
 end
